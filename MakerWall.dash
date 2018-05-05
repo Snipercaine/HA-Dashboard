@@ -1,0 +1,65 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 10
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+
+clock:
+    widget_type: clock
+    widget_style: "font-size: 200%;"
+    time_style: "color: yellow;"
+    date_style: "color: white"
+
+weather_frame:
+    widget_type: iframe
+    title: Radar
+    refresh: 300
+    frame_style: ""
+    img_list:
+      - https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://icons.wxug.com/data/weather-maps/radar/united-states/provo-utah-region-current-radar-animation.gif&container=focus&refresh=240&resize_h=640&resize_h=640
+
+traffic:
+    widget_type: iframe
+    title: Traffic
+    refresh: 60
+    frame_style: ""
+    img_list:
+      - http://udottraffic.utah.gov/1_devices/aux16543.jpeg
+      - http://udottraffic.utah.gov/1_devices/aux16541.jpeg
+      - http://udottraffic.utah.gov/1_devices/aux16529.jpeg
+      - http://udottraffic.utah.gov/1_devices/aux90.jpeg
+
+3DprintCam:
+    widget_type: navigate
+    title: 3D Printer
+    widget_style: "font-size: 200%;"
+    title_style: "color: gold"
+    url: http://192.168.1.17:8080/?action=stream/
+
+layout:
+    - clock (2x2), input_select.holiday_led_effect (2x1), weather.weather (2x2), traffic (2x2)
+    - input_number.animation_speed (2x1)
+    - binary_sensor.d1_pir, switch.crown_leds, switch.3_way, switch.2_wire, switch.t1, weather_frame (3x2)
+    - switch.office_lock, switch.shop_lock, switch.zzonoff, switch.plug, switch.cord
+    - cover.lego (2x1), light.holiday_lights, light.b1, device_tracker.justins_iphone_7, 3DprintCam (2x1), sensor.dark_sky_apparent_temperature
+
+
+
+
+
+
+#office_light:
+#    widget_type: switch
+#    entity: switch.office_light
+#    title: Throne Room
+#    title_style: "color: yellow; font-size: 150%;"
+#    widget_style: "background: blue"
+#    icon_on: mdi-emoticon-cool
+#    icon_off: mdi-emoticon-dead
